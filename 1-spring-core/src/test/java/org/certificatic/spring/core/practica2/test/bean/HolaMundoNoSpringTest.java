@@ -14,6 +14,17 @@ public class HolaMundoNoSpringTest {
 		log.info("holaMundoNoSpringTest -------------------------");
 
 		// Crear instancia de HolaMundo
+		
+		String mensaje = "Hola mundo SIN Spring!";
+		
+		HolaMundo hola = new HolaMundo();
+		
+		hola.setMensaje(mensaje);
+		
+		Assert.assertNotNull(hola);
+		Assert.assertNotNull(hola.getMensaje());
+		
+		log.info("{}",hola);
 
 	}
 }

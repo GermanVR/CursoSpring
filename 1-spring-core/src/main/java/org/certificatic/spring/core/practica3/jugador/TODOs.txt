@@ -2,7 +2,7 @@ TODO 1.
 Definir POJO JugadorFutbol, con nombre, torneo y partido.
 
 TODO 2.
-Implementar en clase JugadorFutbol un método saludar()
+Implementar en clase JugadorFutbol un metodo saludar()
 
 ayuda:
 System.out.println("hola soy un jugador de Futbol");
