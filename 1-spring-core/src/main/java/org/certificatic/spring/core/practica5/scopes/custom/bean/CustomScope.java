@@ -22,7 +22,7 @@ public class CustomScope implements Scope {
 		// System.out.println("solicitando bean: " + name);
 		log.info("solicitando bean: {}", name);
 
-		if (n >= 5) {
+		if (n >= 3) {
 			this.clearBeans();
 			n = 0;
 		}

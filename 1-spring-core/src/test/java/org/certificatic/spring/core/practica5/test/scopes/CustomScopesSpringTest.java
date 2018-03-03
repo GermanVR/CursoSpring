@@ -1,8 +1,10 @@
 package org.certificatic.spring.core.practica5.test.scopes;
 
+import org.certificatic.spring.core.practica5.scopes.bean.Persona;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -13,14 +15,19 @@ public class CustomScopesSpringTest {
 
 	@BeforeClass
 	public static void beforeClass() {
-		// Instanciar ApplicationContext
+		applicationContext = new ClassPathXmlApplicationContext(
+				"spring/practica5/scopes-application-context.xml");
+
 	}
 
 	@Test
 	public void customScopesSpringTest() {
 
 		log.info("scopeSingletonSpringTest -------------------");
-
+		for (int i = 0; i < 15; i++) {
+			Persona p = applicationContext.getBean("personaCustomScopeBean", Persona.class);
+			log.info("PErsona [i] {} {} {} ", p , p.hashCode() , System.identityHashCode(p));
+		}
 		// Implementar
 	}
 
