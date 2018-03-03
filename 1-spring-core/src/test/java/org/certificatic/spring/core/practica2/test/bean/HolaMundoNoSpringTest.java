@@ -12,8 +12,10 @@ public class HolaMundoNoSpringTest {
 	@Test
 	public void holaMundoNoSpringTest() {
 		log.info("holaMundoNoSpringTest -------------------------");
-
+		HolaMundo h = new HolaMundo("Hello");		
 		// Crear instancia de HolaMundo
-
+		Assert.assertNotNull(h);
+		Assert.assertNotNull(h.getMensaje());
+		log.info("{}", h);
 	}
 }

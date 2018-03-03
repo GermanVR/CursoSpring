@@ -17,7 +17,12 @@ public class HolaMundoSpringTest1 {
 		log.info("holaMundoNoSpringTest -------------------------");
 
 		String ruta = "spring/practica2/beans.xml";
-
+		BeanFactory factory = new XmlBeanFactory(new ClassPathResource(ruta));
+		HolaMundo holaMundo = (HolaMundo) factory.getBean("holaMundoBean");
+		Assert.assertNotNull(holaMundo);
+		Assert.assertNotNull(holaMundo.getMensaje());
+		Assert.assertEquals("Hola Mundo Con Spring", holaMundo.getMensaje());
+		log.info("{}", holaMundo);
 		// Implementar IoC con BeanFactory
 
 	}
