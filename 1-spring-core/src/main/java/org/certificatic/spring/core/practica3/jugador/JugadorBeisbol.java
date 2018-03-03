@@ -7,14 +7,14 @@ import org.certificatic.spring.core.practica3.liga.Torneo;
 import lombok.Data;
 
 @Data
-public class JugadorFutbol implements IJugador {
+public class JugadorBeisbol implements IJugador{
 	
 	private String nombre;
 	private Torneo torneo;
 	private Partido partido;
 
 	public void saludar() {
-		System.out.println("hola soy un jugador de futbol");
+		System.out.println("hola soy un jugador de beisbol");
 		System.out.println("me llamo: " + this.nombre + " ["
 				+Integer.toHexString(super.hashCode()) + "]");
 	}

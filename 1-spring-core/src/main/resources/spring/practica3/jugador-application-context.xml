@@ -34,9 +34,19 @@
 		</constructor-arg>
 	</bean>
 
-	<!-- definir bean jugadorBean -->
-	<bean id="jugadorBean" 
+	<!-- definir bean jugadorFutbolBean -->
+	<bean id="jugadorFutbolBean" 
 		class="org.certificatic.spring.core.practica3.jugador.JugadorFutbol">
+		<property name="nombre">
+			<value>Chicharito</value>
+		</property>
+		<property name="torneo" ref="torneoBean"></property>
+		<property name="partido" ref="partidoBean"></property>
+	</bean>
+	
+	<!-- definir bean jugadorBean -->
+	<bean name="jugadorBean" 
+		class="org.certificatic.spring.core.practica3.jugador.JugadorSquash">
 		<property name="nombre">
 			<value>Chicharito</value>
 		</property>
