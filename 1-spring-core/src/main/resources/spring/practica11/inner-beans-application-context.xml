@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Define bean clase Person -->
+	<bean class="org.certificatic.spring.core.practica11.innerbeans.bean.Person">
+		<!-- <property name="name" value="Alicia Paredes"></property> -->
+		<property name="name">
+			<bean id="nameBean" class="java.lang.String">
+				<constructor-arg>
+					<value>Alicia Paredes</value>
+				</constructor-arg>
+			</bean>
+		</property>
+		<property name="age">
+			<ref bean="edadAliciaBean" />
+		</property>
+		<property name="address">
+			<bean class="org.certificatic.spring.core.practica11.innerbeans.bean.Address">
+				<property name="externalNumber" value="10"></property>
+				<property name="internalNumber" value="23"></property>
+				<property name="neighbor">
+					<bean class="java.lang.String">
+						<constructor-arg>
+							<value>San Juaquin</value>
+						</constructor-arg>
+					</bean>
+				</property>
+				<property name="street">
+					<ref bean="streetNameBean" />
+				</property>
+
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="edadAliciaBean" class="java.lang.Integer">
+		<constructor-arg>
+			<value>30</value>
+		</constructor-arg>
+	</bean>
 
 	<!-- Define bean streetNameBean -->
+	<bean id="streetNameBean" class="java.lang.String">
+		<constructor-arg>
+			<value>Pochutla</value>
+		</constructor-arg>
+	</bean>
 
 </beans>

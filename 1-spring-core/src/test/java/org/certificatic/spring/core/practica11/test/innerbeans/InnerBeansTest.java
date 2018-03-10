@@ -40,8 +40,7 @@ public class InnerBeansTest {
 
 		log.info("getStreetNameBeanTest -------------------");
 
-		String streetNameBean = applicationContext.getBean("streetNameBean",
-				String.class);
+		String streetNameBean = applicationContext.getBean("streetNameBean", String.class);
 
 		Assert.assertNotNull(streetNameBean);
 
@@ -50,14 +49,29 @@ public class InnerBeansTest {
 		((AbstractApplicationContext) applicationContext).close();
 	}
 
-	@Test(expected = NoSuchBeanDefinitionException.class)
+	@Test
 	public void getNameBeanTest() {
 
 		log.info("getNameBeanTest -------------------");
+		try {
+			String nameBean = applicationContext.getBean("nameBean", String.class);
+			Assert.fail("Deberia de haber trinado aqui");
+		} catch (Exception e) {
+			
+		}
 
-		String nameBean = applicationContext.getBean("nameBean",
-				String.class);
+		((AbstractApplicationContext) applicationContext).close();
+	}
 
+	@Test(expected = NoSuchBeanDefinitionException.class)
+	// public void getNameBeanTest() {
+	public void getNameBeanTestMejorado() {
+
+		// log.info("getNameBeanTest -------------------");
+		log.info("getNameBeanTest Mejorado-------------------");
+
+		String nameBean = applicationContext.getBean("nameBean", String.class);
+		// Assert.fail("");
 		Assert.fail("Should have to fail at this line");
 
 		((AbstractApplicationContext) applicationContext).close();
