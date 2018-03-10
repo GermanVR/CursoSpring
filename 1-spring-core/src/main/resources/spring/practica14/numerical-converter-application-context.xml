@@ -6,10 +6,17 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 	<!-- Define bean NumericalConverter -->
+	<bean autowire="byType"
+		class="org.certificatic.spring.core.practica14.numericalConverter.bean.NumericalConverter">
+	</bean>
 
 	<!-- Define bean Numerical -->
+	<bean class="org.certificatic.spring.core.practica14.numericalConverter.bean.Numerical" />
 
 	<!-- Define bean Currency -->
+	<bean 
+		class="org.certificatic.spring.core.practica14.numericalConverter.bean.Currency"
+		p:pluralCurrency="Pesos" p:singularCurrency="Peso" />
 
 
 </beans>

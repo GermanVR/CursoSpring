@@ -5,15 +5,34 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
-
 	<!-- Define bean clase Car -->
+	<bean  
+	 	class="org.certificatic.spring.core.practica13.autowire.bean.Car"
+	 	scope="prototype" autowire="byType" />
 
 	<!-- Define bean engine -->
+	<bean scope="prototype" 
+		class="org.certificatic.spring.core.practica13.autowire.bean.Engine" 
+		p:model="V8 Twin Turbo" p:cylinderNumber="8" p:serialNumber="ABC-123-XYZ"
+		/>
 
 	<!-- Define bean wheelGroup -->
+	<bean 
+		class="org.certificatic.spring.core.practica13.autowire.bean.WheelGroup" 
+		scope="prototype" autowire="byName" />
 
 	<!-- Define lista wheelList -->
+	<util:list id="wheelList" list-class="java.util.ArrayList" scope="prototype">
+		<ref bean="wheel"/>
+		<ref bean="wheel"/>
+		<ref bean="wheel"/>
+		<ref bean="wheel"/>
+	</util:list>
 
 	<!-- Define bean wheel -->
+	<bean id="wheel"
+		class="org.certificatic.spring.core.practica13.autowire.bean.Wheel"
+		scope="prototype" p:material="Caucho con spandex" 
+		p:speedIndicator="250 75 Y" p:rinSize="20" />
 
 </beans>

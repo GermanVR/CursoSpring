@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:c="http://www.springframework.org/schema/c" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
 	<!-- Define bean Agenda -->
+	<bean
+		class="org.certificatic.spring.core.tarea2.namespaces.pcutil.bean.Agenda">
+		<property name="autosFamilia">
+			<ref bean="autosFamiliaBean" />
+		</property>
+		<property name="notas" ref="notasBean" />
+	</bean>
+	
+	<bean
+		p:radio="5.555" 
+		class="org.certificatic.spring.core.tarea2.namespaces.pcutil.bean.Circulo">
+		<property name="pi">
+			<util:constant static-field="java.lang.Math.PI"/>
+		</property>
+	</bean>
 
 	<bean
 		class="org.certificatic.spring.core.tarea2.namespaces.pcutil.bean.Persona"
@@ -16,5 +31,18 @@
 		c:marca="Seat" c:modelo-ref="modeloStringBean" />
 
 	<!-- Define Beans al gusto usando p, c y util -->
+	<bean id="modeloStringBean" class="java.lang.String" c:_0="Leon Cupra" />
+
+	<util:set id="autosFamiliaBean" set-class="java.util.HashSet">
+		<ref bean="autoBean" />
+		<bean 
+			class="org.certificatic.spring.core.tarea2.namespaces.pcutil.bean.Auto"
+			c:marca="Nissan" c:modelo="March" />
+	</util:set>
+	
+	<util:list id="notasBean" list-class="java.util.ArrayList">
+		<value>Ir al super</value>
+		<value>Sacar al perro a hacer</value>
+	</util:list>
 
 </beans>

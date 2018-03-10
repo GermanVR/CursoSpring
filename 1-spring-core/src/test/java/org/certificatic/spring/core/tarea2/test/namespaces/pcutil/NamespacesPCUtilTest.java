@@ -46,11 +46,11 @@ public class NamespacesPCUtilTest {
 
 		log.info("agenda: {}", agenda);
 
-		MisProperties misProperties = applicationContext.getBean(MisProperties.class);
+		/*MisProperties misProperties = applicationContext.getBean(MisProperties.class);
 
 		Assert.assertNotNull(misProperties);
 
-		log.info("misProperties: {}", misProperties);
+		log.info("misProperties: {}", misProperties);*/
 
 		((AbstractApplicationContext) applicationContext).close();
 	}
