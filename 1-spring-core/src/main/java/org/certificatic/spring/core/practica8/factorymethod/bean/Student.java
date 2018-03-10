@@ -7,7 +7,7 @@ public class Student {
 	private String name;
 	private Subject subject;
 
-	private Student() {
+	public Student() {
 	}
 
 	public static Student constructStudent(String name, String materia) {
