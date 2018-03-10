@@ -5,12 +5,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 @ToString
-public class Worker {
+public class Worker implements IWorker {
 	private @Getter @Setter String name;
 	private @Getter @Setter int age;
 
 	public Worker() {
-		this.name = "Ivan García";
+		this.name = "Ivan Garcia";
 		this.age = 10;
 
 		System.out.println("[Construct] Worker name: " + this.name);
@@ -28,7 +28,7 @@ public class Worker {
 	}
 
 	public void showInfo() {
-		String msg = String.format("> I'm Worker: %s. [%s]",
+		String msg = String.format(">>>> I'm Worker: %s. [%s]",
 				this.name, this.hashCode());
 
 		System.out.println("[showInfo] " + msg);
