@@ -25,13 +25,13 @@ public class NotificationSpringTest {
 		log.info("notificationSpringTest -------------------");
 
 		INotificationService notificacionService = (INotificationService) applicationContext
-				.getBean(INotificationService.class);
+				.getBean("notificationServiceImpl", INotificationService.class);
 
+
+		notificacionService.notifyTo("Ivan", "Bienvenidos al Workshop de Spring 4", NotificationType.FACEBOOK);
 		Assert.assertNotNull(notificacionService);
-
-		notificacionService
-				.notifyTo("Ivan", "Bienvenidos al Workshop de Spring 4",
-						NotificationType.TWITTER);
+		log.info("Es: {} {} {}", notificacionService, notificacionService.hashCode(),System.identityHashCode(notificacionService));
+		applicationContext.close();
 	}
 
 }

@@ -4,7 +4,6 @@ import org.certificatic.spring.core.tarea1.notification.enums.NotificationType;
 
 public interface INotificationService {
 
-	void notifyTo(String receiver, String message,
-			NotificationType notificationType);
+	void notifyTo(String receiver, String message, NotificationType notificationType);
 
 }
