@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- Habilita configuración por anotaciones -->
+	<context:annotation-config />
 
 	<!-- Define bean Student -->
+	<bean 
+		class="org.certificatic.spring.core.practica16.jsr250.bean.Student" />
 
 	<!-- Define bean Subject (mathematics) -->
+	<bean id="xxx"
+		class="org.certificatic.spring.core.practica16.jsr250.bean.Subject" 
+		p:credits="6" p:name="Matematicas"/>
 
 	<!-- Define bean Subject (subject) -->
+	<bean id="subject"
+		class="org.certificatic.spring.core.practica16.jsr250.bean.Subject" 
+		p:credits="6" p:name="Inglés"/>
 
 	<bean id="name" class="java.lang.String">
 		<constructor-arg>
-			<value>Ivan García</value>
+			<value>Ivan Garcia</value>
 		</constructor-arg>
 	</bean>
 
