@@ -5,7 +5,7 @@ import org.certificatic.spring.core.practica18.jsr330.bean.Employee;
 public class EmployeeManager extends Employee {
 
 	public EmployeeManager() {
-		this.name = "Ilse Hern·ndez";
+		this.name = "Ilse Hern√°ndez";
 		this.dni = "11-44-77-55";
 	}
 }
