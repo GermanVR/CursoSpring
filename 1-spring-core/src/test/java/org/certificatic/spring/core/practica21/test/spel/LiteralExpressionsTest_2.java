@@ -18,11 +18,11 @@ public class LiteralExpressionsTest_2 {
 
 		ExpressionParser spelParser = new SpelExpressionParser();
 
-		Expression spelExpression = spelParser.parseExpression("'Ivan García'");
+		Expression spelExpression = spelParser.parseExpression("'Ivan GarcÃ­a'");
 
-		String stringExpression = null; // obtener valor de la expresion
+		String stringExpression = (String) spelExpression.getValue();
 
-		Assert.assertEquals("Ivan García", stringExpression);
+		Assert.assertEquals("Ivan GarcÃ­a", stringExpression);
 
 		log.info("stringExpression: {}", stringExpression);
 	}
@@ -34,8 +34,10 @@ public class LiteralExpressionsTest_2 {
 
 		ExpressionParser spelParser = new SpelExpressionParser();
 
-		double doubleValue = 0.0; // definir y obtener el valor de la expresion
-									// "3.1416E+10"
+		double doubleValue = spelParser.parseExpression("3.1416E+10").getValue(Double.class);
+		// definir y obtener el
+		// valor de la expresion
+		// "3.1416E+10"
 
 		Assert.assertEquals(3.1416E10, doubleValue, 0.0001);
 
@@ -49,22 +51,19 @@ public class LiteralExpressionsTest_2 {
 
 		ExpressionParser spelParser = new SpelExpressionParser();
 
-		int maxIntValue = (Integer) spelParser.parseExpression("0x7FFFFFFF")
-				.getValue();
+		int maxIntValue = (Integer) spelParser.parseExpression("0x7FFFFFFF").getValue();
 
 		Assert.assertEquals(2147483647, maxIntValue);
 
 		log.info("maxIntValue: {}", maxIntValue);
 
-		boolean trueValue = (Boolean) spelParser.parseExpression("true")
-				.getValue();
+		boolean trueValue = (Boolean) spelParser.parseExpression("true").getValue();
 
 		Assert.assertTrue(trueValue);
 
 		log.info("trueValue: {}", trueValue);
 
-		Object nullObject = (Object) spelParser.parseExpression("null")
-				.getValue();
+		Object nullObject = (Object) spelParser.parseExpression("null").getValue();
 
 		Assert.assertNull(nullObject);
 
