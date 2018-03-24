@@ -86,7 +86,8 @@ public class OperatorsExpressionsTest_5 {
 
 		log.info("instanceofExpressionsTest -------------------");
 
-		boolean booleanInstanceofIntExpression = (Boolean) spelParser.parseExpression("'xyz' instanceof T(Integer)")
+		boolean booleanInstanceofIntExpression = (Boolean) spelParser.parseExpression(
+				"'xyz' instanceof T(Integer)")
 				.getValue();
 		
 		Assert.assertFalse(booleanInstanceofIntExpression);

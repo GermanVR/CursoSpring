@@ -8,6 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class StringProcessor implements IProcessor {
 
+	public StringProcessor() {
+		System.out.println("new StringProcessor()");
+	}
+
 	@Override
 	public String processData(String data, Integer iterations) {
 		log.info("StringProcessor id [{}]: processing data ...", super.hashCode());

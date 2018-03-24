@@ -20,8 +20,8 @@ public class SocietyStub {
 
 		Map<String, Object> hashMap = new HashMap<>();
 
-		hashMap.put("president", createPresident());
-		hashMap.put("advisors", createAdvisors());
+		hashMap.put(Society.President, createPresident());
+		hashMap.put(Society.Advisors, createAdvisors());
 
 		return hashMap;
 	}

@@ -24,7 +24,7 @@ public class ApplicationConfig {
 	}
 
 	// Definir bean
-	@Bean(initMethod = "init", destroyMethod = "destroy")
+	@Bean(initMethod = "init", destroyMethod = "destroy", name = "xxxx")
 	@Qualifier("quadraticEquationServiceBean")
 	public IQuadraticEquationService quadraticService2() {
 		return new QuadraticEquationServiceImpl();
