@@ -10,9 +10,7 @@ public class ColorWriter implements IColorWriter {
 
 	@Override
 	public String getColoredMessage(Color color, String mensaje) {
-		return Ansi.ansi().eraseScreen()
-				.render("@|" + color.getColor() + "    " + mensaje + "|@")
-				.toString();
+		return Ansi.ansi().eraseScreen().render("@|" + color.getColor() + "    " + mensaje + "|@").toString();
 	}
 
 }

@@ -1,6 +1,8 @@
 package org.certificatic.spring.aop.practica24.bank.aop.logging;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.certificatic.spring.aop.practica24.bank.app.model.Account;
 import org.certificatic.spring.aop.util.Color;
 import org.certificatic.spring.aop.util.bean.api.IColorWriter;
@@ -12,6 +14,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 //Define el Bean como Aspecto
+@Aspect
 @Component("webAccountLoggingAspect")
 @Slf4j
 public class WebAccountLoggingAspect implements Ordered {
@@ -23,13 +26,11 @@ public class WebAccountLoggingAspect implements Ordered {
 
 	// Define Advice Before que intercepte webLayer() y cache los argumentos
 	// (la cuenta debe especificar como nombre de parámetro "cuenta")
+	@Before(value = "org.certificatic.spring.aop.practica24.bank.aop.PointcutDefinition.webLayer() && args(cuenta)", argNames = "cuenta")
 	public void beforeAccountMethodExecutionAccount(JoinPoint jp, Account acc) {
 
-		log.info("{}",
-				colorWriter.getColoredMessage(Color.BLUE,
-						String.format(
-								"Logging Web View Account access. Account: %s",
-								acc.getAccountNumber())));
+		log.info("{}", colorWriter.getColoredMessage(Color.BLUE,
+				String.format("Logging Web View Account access. Account: %s", acc.getAccountNumber())));
 
 	}
 
@@ -37,11 +38,8 @@ public class WebAccountLoggingAspect implements Ordered {
 	// (el customer Id debe especificar como nombre de parámetro "id")
 	public void beforeAccountMethodExecutionLong(JoinPoint jp, Long numberId) {
 
-		log.info("{}",
-				colorWriter.getColoredMessage(Color.BLUE,
-						String.format(
-								"Logging Web View Account access. Customer Id: %s",
-								numberId)));
+		log.info("{}", colorWriter.getColoredMessage(Color.BLUE,
+				String.format("Logging Web View Account access. Customer Id: %s", numberId)));
 
 	}
 }

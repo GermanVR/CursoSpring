@@ -6,8 +6,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ImportResource(locations = {
-		"classpath:/spring/practica23/mago-aop-application-context.xml" })
+@ImportResource(locations = { "classpath:/spring/practica23/mago-aop-application-context.xml" })
 public class SpringAspectJAopConfig {
 
 }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
@@ -10,5 +9,46 @@
 		base-package="org.certificatic.spring.aop.practica22,org.certificatic.spring.aop.util.bean" />
 
 	<!-- TODO 6. Define configuración spring aop -->
+	<aop:config>
+		<aop:aspect id="audienciaAspecto" ref="audienciaBean">
+			<aop:pointcut expression="execution( void org.certificatic..IJugador.ejecutarPase() )"
+				id="cuandoUnJugadorEjecutaUnPase" />
+			<aop:pointcut expression="execution( void org.certificatic..IJugador.cobrarPenal(*) )"
+				id="cuandoUnJugadorCobreUnPenal" />
+			<!-- <aop:pointcut expression="execution( void org.certificatic..IJugador.cometerFalta() )" id="cuandoUnJugadorCometeFalta" 
+				/> -->
+			<aop:pointcut expression="execution( void org.certificatic..IJugador.tirarAGol(..) )"
+				id="cuandoUnJugadorTiraGol" />
+			<aop:pointcut expression="execution( void org.certificatic..IJugador.esExpulsado()) )"
+				id="cuandoUnJugadorEsEspulsado" />
+
+			<aop:before pointcut-ref="cuandoUnJugadorEjecutaUnPase" method="gritaOle" />
+			<aop:after pointcut-ref="cuandoUnJugadorEjecutaUnPase" method="gritaOle" />
+
+			<aop:before pointcut-ref="cuandoUnJugadorCobreUnPenal" method="sePoneDePie" />
+			<aop:after-returning pointcut-ref="cuandoUnJugadorCobreUnPenal" method="gritaGol" />
+			<aop:after-throwing pointcut-ref="cuandoUnJugadorCobreUnPenal" method="abuchear" />
+			<aop:after-throwing pointcut-ref="cuandoUnJugadorCobreUnPenal" method="abuchear" />
+			<aop:after pointcut-ref="cuandoUnJugadorCobreUnPenal" method="seSienta" />
+
+			<!-- <aop:after pointcut-ref="cuandoUnJugadorCometeFalta" method="abuchear" /> -->
+			<aop:after pointcut="execution( void org.certificatic..IJugador.cometerFalta() )"
+				method="abuchear" />
+
+			<aop:after-returning pointcut-ref="cuandoUnJugadorTiraGol" method="gritaGol" />
+			<aop:after-returning pointcut-ref="cuandoUnJugadorTiraGol" method="gritaGol" />
+			<aop:after-returning pointcut-ref="cuandoUnJugadorTiraGol" method="aplaudir" />
+			<aop:after-returning pointcut-ref="cuandoUnJugadorTiraGol" method="aplaudir" />
+
+			<!-- <aop:after pointcut-ref="cuandoUnJugadorEsEspulsado" method="abuchear" /> -->
+			<!-- <aop:after pointcut-ref="cuandoUnJugadorEsEspulsado" method="abuchear" /> -->
+			<!-- <aop:after pointcut-ref="cuandoUnJugadorEsEspulsado" method="aplaudir" /> -->
+			<!-- <aop:after pointcut-ref="cuandoUnJugadorEsEspulsado" method="aplaudir" /> -->
+
+			<aop:around pointcut-ref="cuandoUnJugadorEsEspulsado" method="sePoneDeNervios" />
+
+		</aop:aspect>
+
+	</aop:config>
 
 </beans>

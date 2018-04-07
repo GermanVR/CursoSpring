@@ -24,8 +24,7 @@ public class Participante implements IVoluntario {
 		this.pensamiento = pensamiento;
 
 		print(colorWriter.getColoredMessage(Color.MAGENTA,
-				"[Participante] pienso en " + this.pensamiento
-						+ "... [sssssh... es secreto.] "));
+				"[Participante] pienso en " + this.pensamiento + "... [sssssh... es secreto.] "));
 
 	}
 
@@ -34,8 +33,7 @@ public class Participante implements IVoluntario {
 		this.pensamiento = otroPensamiento;
 
 		print(colorWriter.getColoredMessage(Color.MAGENTA,
-				"[Participante] pienso en " + this.pensamiento
-						+ "... [sssssh... es secreto.] "));
+				"[Participante] pienso en " + this.pensamiento + "... [sssssh... es secreto.] "));
 	}
 
 	@Override

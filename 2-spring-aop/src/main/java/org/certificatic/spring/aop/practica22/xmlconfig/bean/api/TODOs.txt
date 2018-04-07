@@ -22,7 +22,7 @@ Analizar TEST PartidoSpringNoAopXmlTest
 
 
 TODO 6.
-Definir configuración de aspecto en spring\practica22\partido-con-aop-application-context.xml
+Definir configuraciï¿½n de aspecto en spring\practica22\partido-con-aop-application-context.xml
 
 
 TODO 7.
