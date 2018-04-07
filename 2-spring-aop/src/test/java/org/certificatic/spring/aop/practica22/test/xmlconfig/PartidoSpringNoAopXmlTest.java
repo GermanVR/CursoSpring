@@ -14,8 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(
-		locations = "classpath:/spring/practica22/partido-sin-aop-application-context.xml")
+@ContextConfiguration(locations = "classpath:/spring/practica22/partido-sin-aop-application-context.xml")
 public class PartidoSpringNoAopXmlTest {
 
 	@Value("#{jugadorBean}")
@@ -33,7 +32,7 @@ public class PartidoSpringNoAopXmlTest {
 	@Test
 	public void partidoNoSpringAopXMLTest() {
 
-		log.info("partidoNoSpringAopXMLTest -------------------");
+		log.info("partidoNoSpringAopXMLTest xD -------------------");
 
 		audiencia.gritaOle();
 		jugador.ejecutarPase();
