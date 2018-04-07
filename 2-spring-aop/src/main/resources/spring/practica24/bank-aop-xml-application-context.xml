@@ -57,10 +57,16 @@
 				and args(bb, ..) -->
 			<!-- 2. completar advice before para pointcut definido anteriormente (Long) -->
 
-
 		</aop:aspect>
 
 		<!-- Define aspecto profilingAspect -->
+		<aop:aspect ref="profilingAspect">
+
+			<aop:around
+				pointcut="within(org.certificatic.spring.aop.practica24.bank..*) and args(obj,..)"
+				arg-names="obj" method="beforeAccountMethodExecutionAccount" />
+
+		</aop:aspect>
 
 	</aop:config>
 
