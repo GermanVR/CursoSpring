@@ -1,10 +1,10 @@
-package org.certificatic.spring.mvc.practica30.parte2.controller;
+package org.certificatic.spring.mvc.practica29.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.certificatic.spring.mvc.practica30.parte2.forms.ContactForm;
+import org.certificatic.spring.mvc.practica29.forms.ContactForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -39,7 +39,7 @@ public class ContactFormController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	// Agregar anotación @Valid a ContactForm para que @InitBinder valide
+	// Agregar anotaciï¿½n @Valid a ContactForm para que @InitBinder valide
 	public String submitForm(Model model, @ModelAttribute("contactForm") ContactForm form, BindingResult result) {
 
 		log.info("submited form: {}", form);

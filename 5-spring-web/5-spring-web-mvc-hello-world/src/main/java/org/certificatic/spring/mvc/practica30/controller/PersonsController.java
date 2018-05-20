@@ -1,4 +1,4 @@
-package org.certificatic.spring.mvc.practica31.controller;
+package org.certificatic.spring.mvc.practica30.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.certificatic.spring.validation.practica30.parte1.domain.Person;
-import org.certificatic.spring.validation.practica30.parte1.domain.Persons;
+import org.certificatic.spring.validation.practica31.domain.Person;
+import org.certificatic.spring.validation.practica31.domain.Persons;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 

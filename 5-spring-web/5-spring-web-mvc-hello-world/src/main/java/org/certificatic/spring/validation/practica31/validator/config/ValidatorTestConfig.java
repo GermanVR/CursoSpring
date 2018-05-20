@@ -1,6 +1,6 @@
-package org.certificatic.spring.validation.practica30.parte1.validator.config;
+package org.certificatic.spring.validation.practica31.validator.config;
 
-import org.certificatic.spring.validation.practica30.parte1.validator.PersonValidator;
+import org.certificatic.spring.validation.practica31.validator.PersonValidator;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

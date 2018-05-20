@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import org.certificatic.spring.validation.practica30.parte1.domain.Person;
+import org.certificatic.spring.validation.practica31.domain.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 // Implementar request mapping "/person"
-// Implementar Sessiones (después) "personCreated", "servertime"
+// Implementar Sessiones (despuï¿½s) "personCreated", "servertime"
 class PersonController {
 
 	private List<Person> persons = Collections.synchronizedList(new ArrayList<Person>());
@@ -42,7 +42,7 @@ class PersonController {
 
 		// Agregar el person que proviene del formulario al listado "persons"
 
-		// Agregar "personCreated" al modelo siendo éste objeto el obtenido
+		// Agregar "personCreated" al modelo siendo ï¿½ste objeto el obtenido
 		// desde el formulario
 
 		// Agregar "servertime" (new Date()) al modelo
@@ -51,8 +51,8 @@ class PersonController {
 		// return "redirect:/person/showdata"; // sendRedirect
 	}
 
-	// En sessiones es necesario obtener los objetos de la sesión mediante el
-	// valor explicito sobre la anotación @ModelAttribute.
+	// En sessiones es necesario obtener los objetos de la sesiï¿½n mediante el
+	// valor explicito sobre la anotaciï¿½n @ModelAttribute.
 	// Implementar request mapping "/showdata" por metodo GET
 	public String showPerson(Model model, @ModelAttribute("personCreated") Person personCreated,
 			@ModelAttribute("servertime") Date servertime) {

@@ -1,4 +1,4 @@
-package org.certificatic.spring.validation.practica30.parte1.domain;
+package org.certificatic.spring.validation.practica31.domain;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 

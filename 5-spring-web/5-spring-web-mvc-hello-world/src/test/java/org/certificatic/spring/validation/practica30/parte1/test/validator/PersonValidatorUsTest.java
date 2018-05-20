@@ -2,7 +2,7 @@ package org.certificatic.spring.validation.practica30.parte1.test.validator;
 
 import java.util.Locale;
 
-import org.certificatic.spring.validation.practica30.parte1.domain.Person;
+import org.certificatic.spring.validation.practica31.domain.Person;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-// Asignar ValidatorTestConfig.class como clase de configuración del contexto
+// Asignar ValidatorTestConfig.class como clase de configuraciï¿½n del contexto
 public class PersonValidatorUsTest {
 
 	// Inyectar MessageSource messageSource;

@@ -20,8 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(
-		locations = "classpath:/spring/practica27/orm-hibernate4-application-context.xml")
+@ContextConfiguration(locations = "classpath:/spring/practica27/orm-hibernate4-application-context.xml")
 @Transactional
 @Rollback(false)
 @ActiveProfiles("h2-in-memory")
@@ -44,31 +43,25 @@ public class CustomerDAOTest {
 	public void createCustomerTest() {
 		log.info("createCustomerTest -------------------");
 
-		User newUser = User.builder().username("laura123").password("123123")
-				.build();
+		User newUser = User.builder().username("laura123").password("123123").build();
 
-		Customer newCustomer = Customer.builder().name("Laura")
-				.lastName("Montes").user(newUser).build();
+		Customer newCustomer = Customer.builder().name("Laura").lastName("Montes").user(newUser).build();
 
 		newUser.setCustomer(newCustomer);
 
 		customerDAO.insert(newCustomer);
 
-		log.info("newCustomer : {} {}", newCustomer,
-				System.identityHashCode(newCustomer));
+		log.info("newCustomer : {} {}", newCustomer, System.identityHashCode(newCustomer));
 
-		((IHibernateExtraOperationsDAO<Customer, Long>) customerDAO)
-				.detach(newCustomer);
+		((IHibernateExtraOperationsDAO<Customer, Long>) customerDAO).detach(newCustomer);
 
-		log.info("newCustomer (detached) : {} {}", newCustomer,
-				System.identityHashCode(newCustomer));
+		log.info("newCustomer (detached) : {} {}", newCustomer, System.identityHashCode(newCustomer));
 
 		Customer customer = customerDAO.findById(newCustomer.getId());
 
 		Assert.assertEquals(customer, newCustomer);
 
-		log.info("customer : {} {}", customer,
-				System.identityHashCode(customer));
+		log.info("customer : {} {}", customer, System.identityHashCode(customer));
 
 		User user = userDAO.findById(customer.getUser().getId());
 
@@ -83,31 +76,25 @@ public class CustomerDAOTest {
 	public void updateCustomerTest() {
 		log.info("updateCustomerTest -------------------");
 
-		User newUser = User.builder().username("laura123").password("123123")
-				.build();
+		User newUser = User.builder().username("laura123").password("123123").build();
 
-		Customer newCustomer = Customer.builder().name("Laura")
-				.lastName("Montes").user(newUser).build();
+		Customer newCustomer = Customer.builder().name("Laura").lastName("Montes").user(newUser).build();
 
 		newUser.setCustomer(newCustomer);
 
 		customerDAO.insert(newCustomer);
 
-		log.info("newCustomer : {} {}", newCustomer,
-				System.identityHashCode(newCustomer));
+		log.info("newCustomer : {} {}", newCustomer, System.identityHashCode(newCustomer));
 
-		((IHibernateExtraOperationsDAO<Customer, Long>) customerDAO)
-				.detach(newCustomer);
+		((IHibernateExtraOperationsDAO<Customer, Long>) customerDAO).detach(newCustomer);
 
-		log.info("newCustomer (detached) : {} {}", newCustomer,
-				System.identityHashCode(newCustomer));
+		log.info("newCustomer (detached) : {} {}", newCustomer, System.identityHashCode(newCustomer));
 
 		Customer customer = customerDAO.findById(newCustomer.getId());
 
 		Assert.assertEquals(customer, newCustomer);
 
-		log.info("customer : {} {}", customer,
-				System.identityHashCode(customer));
+		log.info("customer : {} {}", customer, System.identityHashCode(customer));
 
 		customer.setName("Laura Valeria");
 		customer.setLastName("Manrique");
@@ -117,15 +104,13 @@ public class CustomerDAOTest {
 
 		customerDAO.update(customer);
 
-		log.info("customer (modified) : {} {}", customer,
-				System.identityHashCode(customer));
+		log.info("customer (modified) : {} {}", customer, System.identityHashCode(customer));
 
 		Customer modifiedCustomer = customerDAO.findById(customer.getId());
 
 		Assert.assertEquals(modifiedCustomer, customer);
 
-		log.info("modifiedCustomer : {} {}", modifiedCustomer,
-				System.identityHashCode(modifiedCustomer));
+		log.info("modifiedCustomer : {} {}", modifiedCustomer, System.identityHashCode(modifiedCustomer));
 
 		User user = userDAO.findById(modifiedCustomer.getUser().getId());
 
@@ -139,43 +124,35 @@ public class CustomerDAOTest {
 	public void deleteCustomerTest() {
 		log.info("deleteCustomerTest -------------------");
 
-		User newUser = User.builder().username("laura123").password("123123")
-				.build();
+		User newUser = User.builder().username("laura123").password("123123").build();
 
-		Customer newCustomer = Customer.builder().name("Laura")
-				.lastName("Montes").user(newUser).build();
+		Customer newCustomer = Customer.builder().name("Laura").lastName("Montes").user(newUser).build();
 
 		newUser.setCustomer(newCustomer);
 
 		customerDAO.insert(newCustomer);
 
-		log.info("newCustomer : {} {}", newCustomer,
-				System.identityHashCode(newCustomer));
+		log.info("newCustomer : {} {}", newCustomer, System.identityHashCode(newCustomer));
 
-		((IHibernateExtraOperationsDAO<Customer, Long>) customerDAO)
-				.detach(newCustomer);
+		((IHibernateExtraOperationsDAO<Customer, Long>) customerDAO).detach(newCustomer);
 
-		log.info("newCustomer (detached) : {} {}", newCustomer,
-				System.identityHashCode(newCustomer));
+		log.info("newCustomer (detached) : {} {}", newCustomer, System.identityHashCode(newCustomer));
 
 		Customer customer = customerDAO.findById(newCustomer.getId());
 
 		Assert.assertEquals(customer, newCustomer);
 
-		log.info("customer : {} {}", customer,
-				System.identityHashCode(customer));
+		log.info("customer : {} {}", customer, System.identityHashCode(customer));
 
 		customerDAO.delete(customer);
 
-		log.info("customer (deleted) : {} {}", customer,
-				System.identityHashCode(customer));
+		log.info("customer (deleted) : {} {}", customer, System.identityHashCode(customer));
 
 		Customer deletedCustomer = customerDAO.findById(customer.getId());
 
 		Assert.assertNull(deletedCustomer);
 
-		log.info("deletedCustomer : {} {}", deletedCustomer,
-				System.identityHashCode(deletedCustomer));
+		log.info("deletedCustomer : {} {}", deletedCustomer, System.identityHashCode(deletedCustomer));
 
 		User user = userDAO.findById(customer.getUser().getId());
 
