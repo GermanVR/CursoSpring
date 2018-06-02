@@ -23,7 +23,7 @@ public class PersonValidatorMxTestUtils {
 
 			if (fieldError.getField().equals("name")) {
 
-				Assert.assertEquals("Name is required.", messageSource.getMessage(error, mxLocale));
+				Assert.assertEquals("- Name is required -", messageSource.getMessage(error, mxLocale));
 
 			} else if (fieldError.getField().equals("age")) {
 
