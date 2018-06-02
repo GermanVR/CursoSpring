@@ -4,9 +4,15 @@ import org.springframework.http.HttpStatus;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @JacksonXmlRootElement(localName = "restResponseError")
 public class RestResponseError {
 
