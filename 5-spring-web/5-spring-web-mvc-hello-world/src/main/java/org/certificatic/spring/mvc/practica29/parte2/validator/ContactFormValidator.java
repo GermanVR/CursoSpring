@@ -21,6 +21,8 @@ public class ContactFormValidator implements Validator {
 		// Implementar validador
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "", "Enter your name");
+		
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "", "Enter your Email");
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "gender", "", "Select your gender");
 
@@ -28,7 +30,7 @@ public class ContactFormValidator implements Validator {
 
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "", "Confirm your password");
 
-		if (!contactForm.getEmail().matches(EMAIL_PATTERN)) {
+		if (!contactForm.getEmail().isEmpty() && !contactForm.getEmail().matches(EMAIL_PATTERN)) {
 			errors.rejectValue("email", "", "Enter a valid email !");
 		}
 
