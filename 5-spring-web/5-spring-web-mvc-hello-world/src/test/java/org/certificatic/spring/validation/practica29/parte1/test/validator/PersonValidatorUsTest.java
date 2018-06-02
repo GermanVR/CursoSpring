@@ -1,4 +1,4 @@
-package org.certificatic.spring.validation.practica30.parte1.test.validator;
+package org.certificatic.spring.validation.practica29.parte1.test.validator;
 
 import java.util.Locale;
 
@@ -13,14 +13,14 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RunWith(SpringJUnit4ClassRunner.class)
-// Asignar ValidatorTestConfig.class como clase de configuración del contexto
-public class PersonValidatorMxTest {
+// Asignar ValidatorTestConfig.class como clase de configuraciï¿½n del contexto
+public class PersonValidatorUsTest {
 
 	// Inyectar MessageSource messageSource;
 
 	// Inyectar Validator personValidator;
 
-	private Locale locale = new Locale("es", "MX");
+	private Locale locale = new Locale("en", "US");
 
 	public void setUp() {
 		// Assert.assertNotNull(messageSource);
@@ -28,9 +28,9 @@ public class PersonValidatorMxTest {
 	}
 
 	@Test
-	public void validationPersonMxTest1() {
+	public void validationPersonUsTest1() {
 
-		log.info("validationPersonMxTest1 -------------------");
+		log.info("validationPersonUsTest1 -------------------");
 
 		Person person = new Person();
 		// persona sin nombre ni edad.
@@ -44,7 +44,7 @@ public class PersonValidatorMxTest {
 
 			Assert.assertEquals(2, errors.getErrorCount());
 
-			// PersonValidatorMxTestUtils.printErrors(errors, messageSource,
+			// PersonValidatorUsTestUtils.printErrors(errors, messageSource,
 			// locale);
 
 		}
@@ -52,9 +52,9 @@ public class PersonValidatorMxTest {
 	}
 
 	@Test
-	public void validationPersonMxTest2() {
+	public void validationPersonUsTest2() {
 
-		log.info("validationPersonMxTest2 -------------------");
+		log.info("validationPersonUsTest2 -------------------");
 
 		Person person = new Person();
 		// persona sin nombre y menor de edad.
@@ -69,16 +69,16 @@ public class PersonValidatorMxTest {
 
 			Assert.assertEquals(2, errors.getErrorCount());
 
-			// PersonValidatorMxTestUtils.printErrors(errors, messageSource,
+			// PersonValidatorUsTestUtils.printErrors(errors, messageSource,
 			// locale);
 		}
 
 	}
 
 	@Test
-	public void validationPersonMxTest3() {
+	public void validationPersonUsTest3() {
 
-		log.info("validationPersonMxTest3 -------------------");
+		log.info("validationPersonUsTest3 -------------------");
 
 		Person person = new Person();
 		// persona con nombre y menor de edad.
@@ -94,16 +94,16 @@ public class PersonValidatorMxTest {
 
 			Assert.assertEquals(1, errors.getErrorCount());
 
-			// PersonValidatorMxTestUtils.printErrors(errors, messageSource,
+			// PersonValidatorUsTestUtils.printErrors(errors, messageSource,
 			// locale);
 		}
 
 	}
 
 	@Test
-	public void validationPersonMxTest4() {
+	public void validationPersonUsTest4() {
 
-		log.info("validationPersonMxTest4 -------------------");
+		log.info("validationPersonUsTest4 -------------------");
 
 		Person person = new Person();
 		// persona con nombre y mayor de edad.

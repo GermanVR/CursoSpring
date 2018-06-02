@@ -1,4 +1,4 @@
-package org.certificatic.spring.mvc.practica31.controller;
+package org.certificatic.spring.mvc.practica30.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,10 +1,10 @@
-package org.certificatic.spring.mvc.practica30.parte2.controller;
+package org.certificatic.spring.mvc.practica29.parte2.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import org.certificatic.spring.mvc.practica30.parte2.forms.ContactForm;
+import org.certificatic.spring.mvc.practica29.parte2.forms.ContactForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,17 +29,19 @@ public class ContactFormController {
 	public String initForm(Model model) {
 
 		ContactForm contactForm = new ContactForm();
+		contactForm.setName("Ivan");
 		contactForm.setHiddenMessage("contact-form-" + randomNumber(3));
 
 		log.info("initform: {}", contactForm);
 
 		// Agregar comando "contactForm" al modelo
+		model.addAttribute("contactForm", contactForm);
 
 		return "form/contact_form";
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	// Agregar anotación @Valid a ContactForm para que @InitBinder valide
+	// Agregar anotacion @Valid a ContactForm para que @InitBinder valide
 	public String submitForm(Model model, @ModelAttribute("contactForm") ContactForm form, BindingResult result) {
 
 		log.info("submited form: {}", form);
@@ -54,7 +56,7 @@ public class ContactFormController {
 
 		log.info("confirmation id: {}", confirmationId);
 
-		// return "form/show_data"; // forward
+		//return "form/show_data"; // forward
 		return "redirect:/contact/success"; // sendRedirect
 	}
 

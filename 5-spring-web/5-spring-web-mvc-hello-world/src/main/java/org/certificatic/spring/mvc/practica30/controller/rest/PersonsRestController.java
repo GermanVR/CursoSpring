@@ -1,4 +1,4 @@
-package org.certificatic.spring.mvc.practica31.controller.rest;
+package org.certificatic.spring.mvc.practica30.controller.rest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 
-import org.certificatic.spring.mvc.practica31.controller.advice.RestResponseError;
+import org.certificatic.spring.mvc.practica30.controller.advice.RestResponseError;
 import org.certificatic.spring.validation.practica30.parte1.domain.Person;
 import org.certificatic.spring.validation.practica30.parte1.domain.Persons;
 import org.springframework.http.HttpStatus;
@@ -49,10 +49,10 @@ public class PersonsRestController {
 	}
 
 	// Anotar request mapping "/getException", con metodo GET y produciendo json
-	// y xml. Analizar implementación
+	// y xml. Analizar implementaciï¿½n
 	public ResponseEntity<RestResponseError> getException() {
 		try {
-			throw new IllegalArgumentException("Argumentos Inválidos");
+			throw new IllegalArgumentException("Argumentos Invï¿½lidos");
 
 		} catch (IllegalArgumentException ex) {
 			String errorMessage = "Exception: " + ex.getMessage();

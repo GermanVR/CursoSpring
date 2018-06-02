@@ -1,4 +1,4 @@
-package org.certificatic.spring.mvc.practica31.controller.advice;
+package org.certificatic.spring.mvc.practica30.controller.advice;
 
 import org.springframework.http.HttpStatus;
 

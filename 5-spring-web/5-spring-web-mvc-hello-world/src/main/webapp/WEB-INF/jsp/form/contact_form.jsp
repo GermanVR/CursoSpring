@@ -10,7 +10,7 @@
 <body>
 	<h2>Contact us</h2>
 
-	<form:form method="POST" commandName="contactForm">
+	<form:form method="POST" modelAttribute="contactForm">
 		<table>
 			<tr>
 				<td>Name:</td>
@@ -55,10 +55,13 @@
 				<td><form:errors path="tutor" cssStyle="color: #ff0000;" /></td>
 			</tr>
 			<tr>
-				<form:hidden path="hiddenMessage" />
+				<td>
+					<form:hidden path="hiddenMessage" />
+				</td>
 			</tr>
 			<tr>
-				<td><input type="submit" name="submit" value="Submit">
+				<td>
+					<input type="submit" name="submit" value="Submit">
 				</td>
 			</tr>
 		</table>
