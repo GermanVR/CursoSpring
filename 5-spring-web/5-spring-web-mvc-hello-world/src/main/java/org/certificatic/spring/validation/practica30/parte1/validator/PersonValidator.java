@@ -1,6 +1,8 @@
 package org.certificatic.spring.validation.practica30.parte1.validator;
 
+import org.certificatic.spring.validation.practica30.parte1.domain.Person;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 public class PersonValidator implements Validator {
@@ -13,7 +15,11 @@ public class PersonValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		// Implementar Validación
+		// Implementar Validaciï¿½n
+		Person per = (Person) target;
+		
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "", "Enter your name");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "age", "", "Enter your age");
 
 	}
 

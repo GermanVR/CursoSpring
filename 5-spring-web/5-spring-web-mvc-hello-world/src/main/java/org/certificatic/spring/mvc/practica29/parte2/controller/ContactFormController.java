@@ -4,10 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.annotation.Resource;
+import javax.validation.Valid;
+
 import org.certificatic.spring.mvc.practica29.parte2.forms.ContactForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,8 +28,14 @@ import lombok.extern.slf4j.Slf4j;
 public class ContactFormController {
 
 	// Inyectar Validator contactFormValidator;
+	@Resource
+	private Validator contactFormValidator;
 
 	// asignar validator al comando "contactForm" a initBinder
+	@InitBinder("contactForm")
+	private void initBinder(WebDataBinder binder) {
+		binder.setValidator(contactFormValidator);
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String initForm(Model model) {
@@ -42,7 +54,8 @@ public class ContactFormController {
 
 	@RequestMapping(method = RequestMethod.POST)
 	// Agregar anotacion @Valid a ContactForm para que @InitBinder valide
-	public String submitForm(Model model, @ModelAttribute("contactForm") ContactForm form, BindingResult result) {
+	public String submitForm(Model model, @Valid @ModelAttribute("contactForm") ContactForm form,
+			BindingResult result) {
 
 		log.info("submited form: {}", form);
 
@@ -56,7 +69,7 @@ public class ContactFormController {
 
 		log.info("confirmation id: {}", confirmationId);
 
-		//return "form/show_data"; // forward
+		// return "form/show_data"; // forward
 		return "redirect:/contact/success"; // sendRedirect
 	}
 
